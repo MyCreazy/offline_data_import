@@ -1,0 +1,32 @@
+
+server:
+  port: 8090
+spring:
+  application:
+    name: excel_template
+  datasource:
+    name: datasource
+    url: jdbc:mysql://127.0.0.1:3306/urule?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+urule:
+  ###服务端发现地址
+  resporityServerUrl: http://localhost:18080
+  ###knowledgeUpdateCycle为0时，不是检查缓存，每次都从服务端拉取，为1时，会先查找缓存
+  knowledgeUpdateCycle: 1

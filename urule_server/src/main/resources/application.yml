@@ -1,0 +1,16 @@
+server:
+  port: 18080
+
+spring:
+  datasource:
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/urule?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+  jackson:
+    default-property-inclusion: non_null
+
+urule:
+  repository:
+    databasetype: mysql
+    datasourcename: datasource
